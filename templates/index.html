@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Generator</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Search Form */
+        form {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            background-color: #ff4b5c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e03e4d;
+        }
+
+        /* Recipe Container */
+        .recipe-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #fff;
+        }
+
+        .recipe-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .recipe-container p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Recipe Image */
+        .recipe-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .recipe-container {
+                width: 95%;
+            }
+            input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔥 Recipe Generator 🍽️</h1>
+    <p>Enter ingredients, and we'll suggest a delicious recipe!</p>
+
+    <form method="post">
+        <input type="text" name="ingredients" placeholder="Enter ingredients (comma-separated)">
+        <button type="submit">Find Recipe</button>
+    </form>
+
+    {% if recipe_name %}
+        <div class="recipe-container">
+            <h2>{{ recipe_name }}</h2>
+            <p><b>Instructions:</b> {{ instructions }}</p>
+            <img src="{{ image_url }}" alt="Recipe Image" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x400?text=No+Image';">
+        </div>
+    {% endif %}
+
+</body>
+</html>
